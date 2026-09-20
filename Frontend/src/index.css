@@ -72,3 +72,74 @@ body,html,#root {
 .create-post-section form button:hover {
   background-color: #174b9b;
 }
+body {
+  background: #f4f6f8;
+  color: #252525;
+  font-family: system-ui, sans-serif;
+}
+
+.feed-section {
+  width: min(100% - 2rem, 920px);
+  min-height: 100%;
+  margin: 0 auto;
+  padding: 3rem 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: start;
+  gap: 1.25rem;
+}
+
+.feed-section h1 {
+  grid-column: 1 / -1;
+  margin-bottom: 0.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #dfe4e8;
+  color: #18232c;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.post-card {
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #e1e6e9;
+  border-radius: 20px;
+  box-shadow: 0 5px 16px rgba(31, 45, 55, 0.07);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 9px 24px rgba(31, 45, 55, 0.12);
+}
+
+.post-card > img {
+  display: block;
+  width: calc(100% - 1.5rem);
+  height: 260px;
+  margin: 0.75rem;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.post-card p {
+  margin: 0;
+  padding: 1rem 1.1rem 1.15rem;
+  border-top: 1px solid #e1e6e9;
+  color: #3f4d56;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 600px) {
+  .feed-section {
+    grid-template-columns: 1fr;
+    padding: 2rem 0;
+  }
+
+  .post-card > img {
+    height: 240px;
+  }
+}
+

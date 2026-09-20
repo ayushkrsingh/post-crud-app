@@ -1,6 +1,7 @@
 import React from 'react'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import CreatePost from './pages/CreatePost.jsx'
+import Feed from './pages/feed.jsx'
 
 const App = () => {
   return (
@@ -9,6 +10,7 @@ const App = () => {
         <Route path='/' element={<h1>Home Page</h1>} />
         <Route path='/posts' element={<div>Posts</div>} />
         <Route path='/create-post' element={<CreatePost/>} />
+        <Route path='/feed' element={<Feed/>} />
       </Routes>
     </Router>
   )
