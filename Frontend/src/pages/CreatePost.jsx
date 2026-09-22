@@ -22,6 +22,9 @@ const CreatePost = () => {
   }
   return (
     <section className="create-post-section">
+      <div className="feed-button">
+        <a href="/feed" className="feed-link">Go to Feed</a>
+      </div>
       <h1>Create a New Post</h1>
       <form action="http://localhost:3000/create-post" method="POST" encType="multipart/form-data" onSubmit={handleSubmit}>
         <input type="file" name="image" accept="image/*" required />
