@@ -24,11 +24,24 @@ app.post('/create-post', upload.single('image'), async (req, res) => {
 });
 
 app.get('/posts', async (req, res) => {
-    const posts = await postModel.find();
+    const posts = await postModel.find().sort({ createdAt: -1 }); // Sort posts by creation date in descending order
     return res.status(200).json({
         message: 'Posts fetched successfully',
         posts
     })
+});
+app.delete('/posts/:id', async (req, res) => {
+    const postId = req.params.id;
+    try {
+        const deletedPost = await postModel.findByIdAndDelete(postId);
+        if (!deletedPost) {
+            return res.status(404).json({ message: 'Post not found' });
+        }
+        return res.status(200).json({ message: 'Post deleted successfully', post: deletedPost });
+    } catch (error) {
+        console.error('Error deleting post:', error);
+        return res.status(500).json({ message: 'Internal server error' });
+    }
 });
 
 
